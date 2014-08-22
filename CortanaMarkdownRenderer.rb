@@ -1,3 +1,5 @@
+require 'rouge'
+
 class Cortanamarkdownrenderer < Redcarpet::Render::HTML
   def block_code(code, language)
     formatter = Rouge::Formatters::HTML.new(wrap: false)
