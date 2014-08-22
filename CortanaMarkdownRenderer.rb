@@ -5,14 +5,14 @@ class Cortanamarkdownrenderer < Redcarpet::Render::HTML
       if language.include?('js')
         lexer = Rouge::Lexer.find('js')
         # first actually insert the code in the docs so that it will run and make our example work.
-        '</div><script>' + code + '</script> <div class="codeBlock jsExample"><div class="highlight"><pre>' + formatter.format(lexer.lex(code)) + '</pre></div></div><div class="cortana-content">'
+        '</div><script>' + code + '</script> <div class="codeBlock jsExample" ct-code-block><div class="highlight"><pre ng-non-bindable>' + formatter.format(lexer.lex(code)) + '</pre></div></div><div class="cortana-content">'
       else
         lexer = Rouge::Lexer.find(get_lexer(language))
-        '</div><div class="codeExample">' + '<div class="exampleOutput">' + render_html(code, language) + '</div>' + '<div class="codeBlock"><div class="highlight"><pre>' + formatter.format(lexer.lex(code)) + '</pre></div></div>' + '</div><div class="cortana-content">'
+        '</div><div class="codeExample">' + '<div class="exampleOutput">' + render_html(code, language) + '</div>' + '<div class="codeBlock" ct-code-block><div class="highlight"><pre ng-non-bindable>' + formatter.format(lexer.lex(code)) + '</pre></div></div>' + '</div><div class="cortana-content">'
       end
     else
       lexer = Rouge::Lexer.find_fancy('guess', code)
-      '</div><div class="codeBlock"><div class="highlight"><pre>' + formatter.format(lexer.lex(code)) + '</pre></div></div><div class="cortana-content">'
+      '</div><div class="codeBlock" ct-code-block><div class="highlight"><pre ng-non-bindable>' + formatter.format(lexer.lex(code)) + '</pre></div></div><div class="cortana-content">'
     end
   end
 
