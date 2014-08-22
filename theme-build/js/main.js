@@ -9,12 +9,25 @@
  ========================================================== */
 
 (function(){
-  var app = angular.module('cortana', ['mgcrea.ngStrap', 'ui.bootstrap']);
-
-  app.controller('MainController', function($scope) {
-  });
+  angular.module('cortana', ['mgcrea.ngStrap', 'ui.bootstrap'])
+    .controller('MainController', function($scope) {
+    })
+    .directive('ctCodeBlock', function() {
+        return {
+            restrict: 'EA',
+            scope: true,
+            link: function(scope, el, attr) {
+                var code = el.find('pre:first');
+                code.addClass('ng-hide');
+                el.on('click', function() {
+                    code.toggleClass('ng-hide');
+                });
+            }
+        };
+    });
 
 })();
+
 /* ==========================================================
  * sidenav.js
  * Side nav init script
