@@ -52,7 +52,7 @@
 .cortana-content-wrapper {
   padding: 15px 0 !important;
   padding-bottom: 40px !important;
-  // background: $white !important;
+  background: $white !important;
   border-radius: 4px !important;
   margin-top: 100px !important;
   @media only screen and (max-width: 1280px) {
@@ -81,6 +81,28 @@
     display: inline-block !important;
     font-family: $mainFont !important;
   }
+}
+
+.codeExample {
+  position: relative;
+}
+
+.showCode {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    color: $asbestos !important;
+    border-left: 1px solid $softBlue !important;
+    border-bottom: 1px solid $softBlue !important;
+    border-bottom-left-radius: 4px !important;
+    padding: 5px 8px !important;
+    display: inline-block !important;
+    font-family: $mainFont !important;
+    z-index: 1;
+    cursor: pointer;
+    &:hover {
+      background-color: $softBlue;
+    }
 }
 
 .cortana-footer {

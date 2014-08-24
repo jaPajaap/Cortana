@@ -9,7 +9,7 @@
  ========================================================== */
 
 (function(){
-  angular.module('cortana', ['mgcrea.ngStrap', 'ui.bootstrap'])
+  angular.module('cortana', ['mgcrea.ngStrap', 'ui.bootstrap', 'eyas'])
     .controller('MainController', function($scope) {
     })
     .directive('ctCodeBlock', function() {
@@ -17,10 +17,11 @@
             restrict: 'EA',
             scope: true,
             link: function(scope, el, attr) {
-                var code = el.find('pre:first');
-                code.addClass('ng-hide');
-                el.on('click', function() {
-                    code.toggleClass('ng-hide');
+                var $code = el.find('.codeBlock:first');
+                var $showCode = el.find('.showCode:first');
+                $code.addClass('ng-hide');
+                $showCode.on('click', function() {
+                    $code.toggleClass('ng-hide');
                 });
             }
         };
